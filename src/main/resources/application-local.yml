@@ -1,0 +1,11 @@
+spring:
+  ai:
+    dashscope:
+      api-key: sk-44bf42a2e873406da923a2a0c7a104e4
+      chat:
+        options:
+          model: qwen-plus
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: deepseek-r1:1.5b
