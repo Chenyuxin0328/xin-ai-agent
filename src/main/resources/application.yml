@@ -1,10 +1,30 @@
 spring:
   profiles:
     active: local
+  datasource:
+    mysql:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3307/xin-ai-agent
+      username: root
+      password: mysql123
+    pgsql:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: jdbc:postgresql://localhost/database
+      username: chenyuxin
+      password: chenyuxin123
 server:
   port: 8089
   servlet:
     context-path: /api
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # ????????????
+      logic-delete-value: 1 # ?????????? 1?
+      logic-not-delete-value: 0 # ?????????? 0?
 # knife4j??????
 springdoc:
   swagger-ui:
@@ -21,4 +41,5 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
+
 
