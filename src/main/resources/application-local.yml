@@ -9,5 +9,9 @@ spring:
       base-url: http://localhost:11434
       chat:
         model: deepseek-r1:1.5b
+    mcp:
+      client:
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
 search-api:
   api-key: Dbk3aKbgDrVf8F7qp31F8aVx

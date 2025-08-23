@@ -3,6 +3,7 @@ package com.chenyuxin.xinaiagent.app;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.UUID;
@@ -22,7 +23,8 @@ class LoveAppTest {
     void testChat() {
         String chatId = UUID.randomUUID().toString();
         String message = "你好我是陈宇新";
-        loveApp.doChat(message,chatId);
+        String answer = loveApp.doChat(message,chatId);
+        Assertions.assertNotNull(answer);
         System.out.println("-----------------------------------------------");
         message = "我是谁";
         loveApp.doChat(message,chatId);
@@ -78,6 +80,17 @@ class LoveAppTest {
     private void testMessage(String message) {
         String chatId = UUID.randomUUID().toString();
         String answer = loveApp.doChatWithTools(message, chatId);
+        Assertions.assertNotNull(answer);
+    }
+
+    @Test
+    void doChatWithMcp() {
+        String chatId = UUID.randomUUID().toString();
+//        String message = "我现在在厦门市前埔南区小学，帮我看看附近有没有合适的约会地点？";
+//        String answer = loveApp.doChatWithMcp(message, chatId);
+        // 测试图片搜索 MCP
+        String message = "帮我搜索一些哄另一半开心的图片";
+        String answer =  loveApp.doChatWithMcp(message, chatId);
         Assertions.assertNotNull(answer);
     }
 
